@@ -18,6 +18,8 @@ def main():
     for file in files:
         extract = MetadataExtract(file)
         publisher.publish(json.dumps(extract.extract_all_to_json()).encode())
+    if not files:
+        logger.info("There are no files!")
 
 
 if __name__ == "__main__":
